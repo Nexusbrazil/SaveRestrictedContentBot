@@ -1,7 +1,7 @@
 #Github.com/Vasusen-code
 
 import time, os
-fs = None
+
 from .. import bot as Drone
 from .. import userbot, Bot
 from .. import FORCESUB as fs
@@ -12,6 +12,8 @@ from telethon import events
 from pyrogram.errors import FloodWait
 
 from ethon.telefunc import force_sub
+
+fs = None
 
 ft = f"To use this bot you've to join @{fs}."
 
