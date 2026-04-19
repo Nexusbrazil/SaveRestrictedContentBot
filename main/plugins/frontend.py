@@ -1,7 +1,7 @@
 #Github.com/Vasusen-code
 
 import time, os
-
+fs = None
 from .. import bot as Drone
 from .. import userbot, Bot
 from .. import FORCESUB as fs
