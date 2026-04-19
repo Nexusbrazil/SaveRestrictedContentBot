@@ -42,7 +42,7 @@ async def clone(event):
             await edit.edit(q)
             return
         if 't.me/' in link:
-            await get_msg(userbot, Bot, Drone, "-1003922604517", edit.id, link, 0)
+            await get_msg(userbot, Bot, Drone, "-1003922604517", 0, link, 0)
     except FloodWait as fw:
         return await Drone.send_message(event.sender_id, f'Try again after {fw.x} seconds due to floodwait from telegram.')
     except Exception as e:
