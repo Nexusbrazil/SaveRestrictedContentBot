@@ -31,10 +31,6 @@
             "description": "User ID of Bot owner.",
             "value": ""
         },
-        "FORCESUB": {
-            "description": "Username name of public channel without using '@'.",
-            "value": ""
-        }
     },
     "buildpacks": [
         {
