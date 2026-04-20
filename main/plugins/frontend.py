@@ -31,21 +31,22 @@ async def clone(event):
             return
     except TypeError:
         return
-    #s, r = await force_sub(event.client, fs, event.sender_id, ft)
-    #if s == True:
-    #    await event.reply(r)
-    #   return
-    #edit = await event.reply("Processing!")
+
+    # NÃO use mais: edit = await event.reply("Processing!")
+
     try:
         if 't.me/+' in link:
             q = await join(userbot, link)
             await Drone.send_message(event.sender_id, str(q))
             return
+        
         if 't.me/' in link:
+            # -1003922604517 é o ID do seu grupo
+            # O 0 indica que não deve haver edição de mensagem
             await get_msg(userbot, Bot, Drone, "-1003922604517", 0, link, 0)
+            
     except FloodWait as fw:
         await Drone.send_message(event.sender_id, f'FloodWait: {fw.x} segundos.')
     except Exception as e:
-        # Usamos apenas o print para o log do Railway para evitar o erro de corrotina no envio
-        print(f"Erro na clonagem do link {link}: {e}")
-    
+        # Importante: converte o erro para string para evitar avisos de corrotina
+        print(f"Erro na clonagem: {str(e)}")
