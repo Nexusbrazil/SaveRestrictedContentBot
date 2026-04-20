@@ -39,13 +39,13 @@ async def clone(event):
     try:
         if 't.me/+' in link:
             q = await join(userbot, link)
-            #await edit.edit(q)
+            await Drone.send_message(event.sender_id, str(q))
             return
         if 't.me/' in link:
             await get_msg(userbot, Bot, Drone, "-1003922604517", 0, link, 0)
     except FloodWait as fw:
-        return await Drone.send_message(event.sender_id, f'Try again after {fw.x} seconds due to floodwait from telegram.')
+        await Drone.send_message(event.sender_id, f'FloodWait: {fw.x} segundos.')
     except Exception as e:
-        print(e)
-        await Drone.send_message(event.sender_id, f"An error occurred during cloning of `{link}`\n\n**Error:** {str(e)}")
+        # Usamos apenas o print para o log do Railway para evitar o erro de corrotina no envio
+        print(f"Erro na clonagem do link {link}: {e}")
     
