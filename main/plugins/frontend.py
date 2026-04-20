@@ -43,7 +43,7 @@ async def clone(event):
         if 't.me/' in link:
             # -1003922604517 é o ID do seu grupo
             # O 0 indica que não deve haver edição de mensagem
-            await get_msg(userbot, Bot, Drone, "-1003922604517", 0, link, 0)
+            await get_msg(userbot, Bot, Drone, -1003922604517, 0, link, 0)
             
     except FloodWait as fw:
         await Drone.send_message(event.sender_id, f'FloodWait: {fw.x} segundos.')
