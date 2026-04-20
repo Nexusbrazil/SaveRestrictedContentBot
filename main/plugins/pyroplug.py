@@ -22,7 +22,16 @@ def thumbnail(sender):
       
 async def get_msg(userbot, client, bot, sender, edit_id, msg_link, i):
     """ userbot: PyrogramUserBot | client: PyrogramBotClient | bot: TelethonBotClient """
-    
+    try:
+        # Tenta resolver o ID para garantir que o Telegram saiba quem é o destino
+        await client.get_chat(sender) 
+    except Exception as e:
+        print(f"Tentando resolver Peer ID via Userbot: {e}")
+        try:
+            # Tenta via Userbot caso o Bot ainda não conheça o canal
+            await userbot.get_chat(sender)
+        except Exception:
+            pass
     # Validação inicial do edit_id para evitar erros de Peer/Message ID
     use_edit = True if edit_id and edit_id != 0 else False
     edit = None
