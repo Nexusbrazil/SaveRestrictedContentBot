@@ -42,7 +42,7 @@ async def clone(event):
             await Drone.send_message(event.sender_id, str(q))
             return
         if 't.me/' in link:
-            await get_msg(userbot, Bot, Drone, "-1003922604517", None, link, 0)
+            await get_msg(userbot, Bot, Drone, "-1003922604517", 0, link, 0)
     except FloodWait as fw:
         await Drone.send_message(event.sender_id, f'FloodWait: {fw.x} segundos.')
     except Exception as e:
