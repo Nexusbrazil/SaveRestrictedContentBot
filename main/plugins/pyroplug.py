@@ -83,7 +83,7 @@ async def get_msg(userbot, client, bot, sender, edit_id, msg_link, i):
                 except:
                     thumb_path = None
                 
-                await client.send_video_note(
+                await userbot.send_video_note(
                     chat_id=sender,
                     video_note=file,
                     length=height, duration=duration, 
@@ -101,7 +101,7 @@ async def get_msg(userbot, client, bot, sender, edit_id, msg_link, i):
                 except:
                     thumb_path = None
                 
-                await client.send_video(
+                await userbot.send_video(
                     chat_id=sender,
                     video=file,
                     caption=caption,
@@ -118,7 +118,7 @@ async def get_msg(userbot, client, bot, sender, edit_id, msg_link, i):
             
             else:
                 thumb_path = thumbnail(sender)
-                await client.send_document(
+                await userbot.send_document(
                     sender, file, caption=caption, thumb=thumb_path,
                     progress=progress_for_pyrogram,
                     progress_args=(client, '**UPLOADING:**\n', edit, time.time()) if use_edit else (client, "Uploading...", None, time.time())
